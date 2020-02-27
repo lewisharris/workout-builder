@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <div id="app container">
+            <div> how to use</div>
+
+
+        </div>
+            <div id="new-item-menu">
+                <form name="new-exercise" id="exercise-form">
+                    <label for="exercise">enter exercise</label>
+                    <input type="text" id="exercise-text" placeholder="enter exercise">
+                    <label for="sets">sets</label>
+                    <input type="range" min="1" max="10" value="3" id="sets">
+                    <label for="sets" id='sets-value'>3</label>
+                    <label for='reps'>reps</label>
+                    <input type="range" min="1" max="30" value="10" id="reps">
+                    <label for="reps" id="reps-value">10</label>
+                    <button type='button' id="addExercise">add to workout</button>
+                </form>
+            </div>
+            <ul id='workoutList'>
+            </ul>
+            <button id='clear-workout'> Clear Workout</button>
+
+        <script src="app.js"></script>
+    </body>
+</html>
