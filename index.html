@@ -1,30 +1,90 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="style.css" type="text/css">
     </head>
     <body>
-        <div id="app container">
-            <div> how to use</div>
 
+        <div id="welcome-text" class="welcome">
+            <h1>pushFIT.</h1>
+            <h3>YOUR GYM PARTNER</h3>
 
+            <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;" xml:space="preserve">
+            <style type="text/css">
+                .st0{fill:#FFFFFF;}
+                .st1{fill:#FFA69E;}
+            </style>
+            <g>
+                <g>
+                    <path class="st0" d="M468.39,0H91.61C41.22,0,0,41.22,0,91.61v376.78C0,518.78,41.22,560,91.61,560h376.78
+                        c50.39,0,91.61-41.22,91.61-91.61V91.61C560,41.22,518.78,0,468.39,0z"/>
+                </g>
+                <g>
+                    <g>
+                        <path class="st1" d="M242.87,414.31L242.87,414.31c20.61,20.61,54.34,20.61,74.95,0L504.5,227.64
+                            c20.61-20.61,20.61-54.34,0-74.95l0,0c-20.61-20.61-54.34-20.61-74.95,0L242.87,339.36C222.26,359.97,222.26,393.7,242.87,414.31
+                            z"/>
+                        <path class="st1" d="M316.5,414.31L316.5,414.31c20.61-20.61,20.61-54.34,0-74.95l-73.86-73.86c-20.61-20.61-54.34-20.61-74.95,0
+                            l0,0c-20.61,20.61-20.61,54.34,0,74.95l73.86,73.86C262.16,434.93,295.89,434.93,316.5,414.31z"/>
+                    </g>
+                    <circle class="st1" cx="139.5" cy="228.5" r="98.5"/>
+                </g>
+            </g>
+       </svg>
+        <button id="go-train" type='button'>GO TRAIN</button>
         </div>
-            <div id="new-item-menu">
-                <form name="new-exercise" id="exercise-form">
-                    <label for="exercise">enter exercise</label>
-                    <input type="text" id="exercise-text" placeholder="enter exercise">
-                    <label for="sets">sets</label>
+
+
+
+        <div id="app-container hide">
+            <div id="instructions" class="flex-page hide"> 
+                <h2>how to use</h2>
+                <div id="instruction-text">
+                    <p>This tool is designed to help you with your gym routine.
+                    Simply enter the exercise into the input field, then select the amount of reps
+                    and sets you want to complete for each exercise then add the exercise to your workout.
+                    </p>
+                    <p>
+                    if you have completed your exercise you can tap it to mark it as done, or you can remove it using the delete icon.
+
+                    </p>
+
+                </div>
+                <button id='start-now'>start now</button>
+            </div>
+
+
+            <div id="new-exercise-menu" class='flex-page hide'>
+                <h1>WORKOUT BUILDER</h1>
+                <h2>Enter exercise..</h2>
+                <form name="new-exercise" id="exercise-form" >
+                    <input type="text" id="exercise-text" placeholder="eg.bench press">
+                    <label for="sets" class="input-row text">sets</label>
+                    <label for="sets" id='sets-value' class="input-row">3</label>
                     <input type="range" min="1" max="10" value="3" id="sets">
-                    <label for="sets" id='sets-value'>3</label>
-                    <label for='reps'>reps</label>
+
+                    <label for='reps' class="input-row text">reps</label>
+                    <label for="reps" id="reps-value" class="input-row">10</label>
                     <input type="range" min="1" max="30" value="10" id="reps">
-                    <label for="reps" id="reps-value">10</label>
-                    <button type='button' id="addExercise">add to workout</button>
+
+                    <button type='submit' id="addExercise">Add to workout</button>
+                    <button id='go-to-workout' type="button">Go to workout</button>
                 </form>
             </div>
-            <ul id='workoutList'>
-            </ul>
-            <button id='clear-workout'> Clear Workout</button>
+
+
+            <div id="custom-workout" class="flex-page hide">
+                <ul id='workoutList'><!--This is filled with javascript--></ul>
+                <button id='add-exercise' type="button">Add Exercise</button>
+                <button id='clear-workout' type="button">Clear Workout</button>
+                <button id='help' type="button">help</button>
+            </div>
+
+        </div>
 
         <script src="app.js"></script>
     </body>

@@ -1,41 +1,365 @@
+
+/*
+$light:#fefefe;
+
 body{
     font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+    background:#1a2947;
+    color:$light;
 }
-
+#app-container{
+    min-width:100px;
+    width:80vw;
+    max-width:700px;
+    margin:5% auto 0% auto;
+    background:#243861;
+    padding:3%;
+    border-radius:20px;
+}
 #exercise-form{
     display: flex;
     flex-direction: column;
-    width:600px;
     text-align:center;
+    margin:10px auto;
+    border:solid 2px $light;
+    border-radius: 10px;
+    padding:20px;
+    overflow:hidden;
+    height:60vh;
 }
 
-.delete-exercise{
-    width:50px;
-    background:red;
+#workoutList{
+    width:100%;
+    margin:10px auto;
+    list-style-type: none;
+    text-align: center;
     padding:0px;
-    height:100%;
+}
+.delete-exercise{
+    width:40px;
+    padding:0px;
+    height:40px;
     border:none;
-    color:#FEFEFE;
-    line-height:1.5;
+    color:red;
+    line-height:1.2;
+    font-size:2rem;
+    background:$light;
+    font-weight:bolder;
+    border-radius:20px;
 }
 
 
 .exercise{
-    width:300px;
-    height:30px;
-    background:yellow;
+    height:40px;
     display: flex;
     flex-direction: row;
     justify-content:space-between;
-    margin:10px;
+    margin:10px auto;
+    padding:5px;
     cursor: pointer;
-    line-height:2;
+    line-height:2.5;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+    border:solid 2px $light;
+    background:$light
 }
 .completed{
-    background:green;
+    background:#4f8071;
+    transition: all 0.5s ease-in-out;
+}
+
+.input-row{
+text-align: center;
+height:40px;
+margin:10px;
+border-radius: 20px;
+}
+.input-data{
+text-align: center;
+height:40px;
+margin:10px;
+background:black;
+color:white;
+font-size: 1.5rem;
+border-radius: 20px;
+border:none;
+}
+
+#clear-workout{
+    width:50%;
+    height:40px;
+    border-radius: 10px;
+    background:$light;
+    color:#243861;
+}
+
+*/
+
+
+
+
+//     color scheme
+//#84DCC6
+//#FF686B
+//#FFA69E
+//#A5FFD6
+//#84DCC6
+
+$light:#FFFFFF;
+
+body{
+    background:#FF686B;
+    margin:0px;
+    padding:0px;
+    box-sizing:border-box;
+    font-family: Montserrat,helvetica,arial,sans-serif;
+    color: #1c1b1b;
+    text-align:center;
+    line-height:1.5;
+    letter-spacing: 1px;
+    color:$light;
+}
+
+
+#welcome-text{
+    display:flex;
+    flex-direction: column;
+    width:100vw;
+    height:100vh;
+    h1{
+        color:$light;
+        margin:30vmin auto 0px auto;
+        font-size:3rem;
+    }
+    h2{
+        margin:0px auto;
+    }
+    button{
+        margin:20vmin auto;
+        font-size:1.2rem;
+        border-radius: 20px;
+    }
+    button:hover{
+        background:#FFA69E;
+        animation: shadowFadeIn 1s;
+    }
+}
+
+@keyframes shadowFadeIn {
+    0% { box-shadow: inset 0px 0px 0px rgba(132,220,198,1) }
+    100% { box-shadow: inset 200px 0px 0px rgba(132,220,198,1); }
+}
+
+
+#icon{
+    min-width:100px;
+    max-width:20vw;
+    margin:0px auto;
+}
+
+
+#app-container{
+    width:80vw;
+    max-width:700px;
+    min-width:150px;
+    background:$light;
+    margin:10vh auto 10vh auto;
+    border-radius:20px;
+    padding:5%;
+    min-height:80vh;
+}
+
+.flex-page{
+    margin:0px auto;
+    height:100%;
+    padding:10px;
+    font-size:1.2rem;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    text-align:center;
+    h1{
+        text-align: center;
+    }
+}
+
+.hide{
+    display: none;
+}
+
+#exercise-form{
+    display: flex;
+    flex-direction:column;
+    width:75%;
+    margin:0px auto;
+}
+button{
+    min-width:100px;
+    width:150px;
+    max-width:200px;
+    height:50px;
+    background:#FFA69E;
+    border:none;
+    border-radius:8px;
+    margin:10px auto;
+    font-size:1rem;
+    color:$light;
+}
+button:hover{
+    background:#84DCC6;
+}
+
+#instructions{
+    padding:10%;
+    max-width:700px;
+}
+#new-exercise-menu{
+    h2{
+        margin:10px auto;
+        font-weight:lighter;
+        font-size:1.3rem;
+    }
+}
+#exercise-form{
+    max-width:700px;
+    position: relative;
+}
+
+#exercise-text{
+    margin:1% auto;
+    height:50px;
+    width:75%;
+    font-size:1.5rem;
+    padding:0 10%;
+    text-align:center;
+    border:none;
+    border-radius: 8px;
+}
+
+
+#workoutList{
+    list-style-type:none;
+    width:80%;
+    background:#FFA69E;
+    margin:0px auto;
+    display: flex;
+    flex-direction: column;
+    padding:1%;
+    position: relative;
+}
+
+.exercise{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height:40px;
+    border-radius: 8px;
+    position: relative;
+    margin:5px;
+}
+
+.completed{
+    background:#FF686B;
+}
+
+.delete-exercise{
+    background:white;
+    color:#FF686B;
+    width:20px;
+    max-width: 30px;
+    height:30px;
+    padding:1%;
+    position: absolute;
+    right:10px;
+    top: 5px;
 }
 
 #sets{
-
+    position:absolute;
+    -webkit-transform: rotate(90deg);
+    top:170px;
+    left:10%;
+    margin:50px auto;
+    width:40%;
 }
 
+#reps{
+    position:absolute;
+    -webkit-transform: rotate(90deg);
+    top:170px;
+    right:10%;
+    margin:50px auto;
+    width:40%;
+}
+
+.input-row{
+    margin:10px auto;
+    width:50px;
+    background:#FFA69E;
+    color:white;
+    padding:2%;
+    border-radius: 8px;
+}
+
+.text{
+    color:#FF686B;
+    background:#FFA69E;
+    font-weight: bold;
+    font-size:1.3rem;
+}
+
+
+
+//Input slider styling
+input[type="range"] {
+    -webkit-appearance: none;
+   }
+   
+input[type="range"]:focus {
+    outline: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background:transparent;
+    height: 10px;
+}
+   
+input[type="range"]::-moz-range-track {
+    background-color :transparent ;
+    height: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 40px;
+    width: 40px;
+    margin-top: -5px;
+    border-radius: 25%;
+    margin-top:-15px;
+    background-image:url('pushfit-icon.svg');
+    background-size: fill;
+    background-repeat: no-repeat;
+    transform: rotate(-90deg);
+    border:solid white 2px;
+}
+   
+input[type="range"]::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 40px;
+    width: 40px;
+    margin-top: -5px;
+    border-radius: 25%;
+    margin-top:-15px;
+    background-image:url('pushfit-icon.svg');
+    background-size: fill;
+    background-repeat: no-repeat;
+    transform: rotate(-90deg);
+    border:solid white 2px;
+}
+
+//#84DCC6
+//#FF686B
+//#FFA69E
+//#A5FFD6
+//#84DCC6
