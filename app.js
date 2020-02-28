@@ -1,3 +1,51 @@
+//WGER API
+
+
+//navigate through pages
+const instructions = document.getElementById('instructions')
+const newExerciseMenu = document.getElementById('new-exercise-menu')
+const workoutPage = document.getElementById('custom-workout')
+const welcomePage = document.getElementById('welcome-text');
+
+
+//show the current display
+function pageToggle(page){
+    page.classList.toggle('hide');
+}
+
+function hideWelcome(){
+    welcomePage.style.display = 'none';
+    pageToggle(instructions);
+}
+
+
+document.getElementById('go-train').addEventListener('click',() => {
+    setTimeout(hideWelcome,0)
+})
+
+document.getElementById('start-now').addEventListener('click', () => {
+    pageToggle(instructions);
+    pageToggle(newExerciseMenu);
+})
+
+document.getElementById('go-to-workout').addEventListener('click', () => {
+    pageToggle(newExerciseMenu)
+    pageToggle(workoutPage);
+})
+
+document.getElementById('help').addEventListener('click', () =>{
+    pageToggle(instructions);
+    pageToggle(workoutPage);
+})
+
+document.getElementById('add-exercise').addEventListener('click',()=>{
+    pageToggle(workoutPage)
+    pageToggle(newExerciseMenu)
+})
+
+
+
+
 
 //reusable code to be used in slider
 function changeValue(input,output){
@@ -18,6 +66,7 @@ document.getElementById('reps').addEventListener('input', () => {
 
 //change value of setsslider
 document.getElementById('addExercise').addEventListener('click',()=>{
+    event.preventDefault();
     createNewExercise('exercise-text','sets','reps');
 });
 
@@ -29,7 +78,7 @@ var workout = [];
 function createNewExercise(exercise,sets,reps){
     if(document.getElementById('exercise-text').value == ''){
         document.getElementById('exercise-text').placeholder = 'Please enter an exercise';
-        exercise.focus();
+        document.getElementById('exercise-text').focus();
         return
     }
     else{
@@ -47,7 +96,7 @@ function createNewExercise(exercise,sets,reps){
                     <span>${item.exercise}</span>
                     <span>${item.sets} sets</span>
                     <span>${item.reps} reps</span>
-                    <button class="delete-exercise">x</button>
+                    <button class="delete-exercise">&#10005;</button>
                 </li>`;
     }).join('');
     renderExercise();
