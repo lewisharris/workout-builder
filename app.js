@@ -26,6 +26,7 @@ document.getElementById('go-train').addEventListener('click',() => {
 document.getElementById('start-now').addEventListener('click', () => {
     pageToggle(instructions);
     pageToggle(newExerciseMenu);
+    document.getElementById('exercise-text').focus();
 })
 
 document.getElementById('go-to-workout').addEventListener('click', () => {
@@ -41,6 +42,7 @@ document.getElementById('help').addEventListener('click', () =>{
 document.getElementById('add-exercise').addEventListener('click',()=>{
     pageToggle(workoutPage)
     pageToggle(newExerciseMenu)
+    document.getElementById('exercise-text').focus();
 })
 
 
@@ -64,8 +66,11 @@ document.getElementById('reps').addEventListener('input', () => {
     }
 );
 
+
+const addExercise = document.getElementById('addExercise')
+
 //change value of setsslider
-document.getElementById('addExercise').addEventListener('click',()=>{
+addExercise.addEventListener('click',()=>{
     event.preventDefault();
     createNewExercise('exercise-text','sets','reps');
 });
@@ -93,18 +98,28 @@ function createNewExercise(exercise,sets,reps){
     workoutList = workout.map( item => {
         return `
                 <li class="exercise">
-                    <span>${item.exercise}</span>
-                    <span>${item.sets} sets</span>
-                    <span>${item.reps} reps</span>
-                    <button class="delete-exercise">&#10005;</button>
+                    <span class="exercise-list-item chosen-exercise">${item.exercise}</span>
+                    <span class="exercise-list-item">${item.sets} sets</span>
+                    <span class="exercise-list-item">${item.reps} reps</span>
+                    <span class="exercise-list-item delete-exercise">&#10005;</span>
                 </li>`;
     }).join('');
     renderExercise();
     removeExercise();
     completeExercise();
+    addedToWorkout();
+    setTimeout(returnButton,400)
     }
 };
 
+function addedToWorkout(){
+       addExercise.classList.add('completed')
+       addExercise.innerHTML = 'Added to workout';
+    }
+function returnButton(){
+    addExercise.classList.remove('completed');
+    addExercise.innerHTML = 'Add to workout'; 
+}
 
 //remove exercise from list
 function removeExercise(){
@@ -137,14 +152,19 @@ function clearWorkout(){
     workout = [];
     workoutList = [];
     renderExercise();
+    checkForEmptyList();
 }
 
 //clearWorkout
 document.getElementById('clear-workout').addEventListener('click', () => {clearWorkout()})
 
 
-
-
+//message for when workout list is empty
+function checkForEmptyList(){
+    if(workoutList.value == undefined){
+        document.getElementById('workoutList').innerHTML = 'WORKOUT IS EMPTY'
+    }
+}
 
 
 
