@@ -108,7 +108,14 @@ border:none;
 
 $light:#FFFFFF;
 
+html{
+width:100vw;
+height:100vh;
+}
+
 body{
+    width:100vw;
+    height:100vh;
     background:#FF686B;
     margin:0px;
     padding:0px;
@@ -121,7 +128,39 @@ body{
     color:$light;
 }
 
+#app-container{
+    width:80vw;
+    max-width:700px;
+    min-width:250px;
+    background:$light;
+    margin:10vh auto 10vh auto;
+    border-radius:20px;
+    padding:5%;
+    min-height:80vh;
+}
 
+.flex-page{
+    margin:0px auto;
+    position: relative;
+    height:100%;
+    padding:10px;
+    font-size:1.2rem;
+    display:flex;
+    flex-direction:column;
+    height:100%;
+    min-width:250px;
+    text-align:center;
+    h1{
+        text-align: center;
+    }
+}
+
+.hide{
+    display: none;
+}
+
+
+//Welcome page
 #welcome-text{
     display:flex;
     flex-direction: column;
@@ -151,41 +190,10 @@ body{
     100% { box-shadow: inset 200px 0px 0px rgba(132,220,198,1); }
 }
 
-
 #icon{
     min-width:100px;
     max-width:20vw;
     margin:0px auto;
-}
-
-
-#app-container{
-    width:80vw;
-    max-width:700px;
-    min-width:150px;
-    background:$light;
-    margin:10vh auto 10vh auto;
-    border-radius:20px;
-    padding:5%;
-    min-height:80vh;
-}
-
-.flex-page{
-    margin:0px auto;
-    height:100%;
-    padding:10px;
-    font-size:1.2rem;
-    display:flex;
-    flex-direction:column;
-    height:100%;
-    text-align:center;
-    h1{
-        text-align: center;
-    }
-}
-
-.hide{
-    display: none;
 }
 
 #exercise-form{
@@ -193,6 +201,7 @@ body{
     flex-direction:column;
     width:75%;
     margin:0px auto;
+    min-width:250px;
 }
 button{
     min-width:100px;
@@ -220,6 +229,11 @@ button:hover{
         font-weight:lighter;
         font-size:1.3rem;
     }
+    img{
+        width:30px;
+        padding:10px;
+        vertical-align: middle;
+    }
 }
 #exercise-form{
     max-width:700px;
@@ -237,61 +251,91 @@ button:hover{
     border-radius: 8px;
 }
 
+#custom-workout{
+    h2{
+        margin:10px auto;
+        font-weight:lighter;
+        font-size:1.3rem;
+    }
+    img{
+        width:30px;
+        padding:10px;
+        vertical-align: middle;
+    }
+}
 
 #workoutList{
     list-style-type:none;
-    width:80%;
+    min-width:250px;
+    max-width:700px;
     background:#FFA69E;
     margin:0px auto;
     display: flex;
     flex-direction: column;
-    padding:1%;
-    position: relative;
+    padding:4%;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .exercise{
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    height:40px;
+    justify-content: space-between;
     border-radius: 8px;
-    position: relative;
-    margin:5px;
+    width:80vw;
+    min-width:250px;
+    max-width: 700px;
+    margin:5px auto;
+    padding:0px 0px 0px 5px;
+    background:white;
+    transition: all 0.2s ease-in-out;
+    min-height:50px;
+    text-align: left;
+
+}
+.exercise-list-item{
+    color:black;
+    margin:0px 1%;
+    font-size:1rem;
+    padding:0px 3px;
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    padding:0px;
+    text-align: center;
+}
+.chosen-exercise{
+    color:black;
+    border-radius: 8px 0px 0px 8px;
+    margin:0px;
+    word-wrap: normal;
+    flex: 0 1 50%;
+    font-weight: bold;
+    text-align: left;
 }
 
 .completed{
-    background:#FF686B;
+    background:#84DCC6;
+    transition: all 0.2s ease-in-out;
 }
 
 .delete-exercise{
-    background:white;
-    color:#FF686B;
-    width:20px;
-    max-width: 30px;
-    height:30px;
-    padding:1%;
-    position: absolute;
-    right:10px;
-    top: 5px;
+    background:#FF686B;
+    margin:0px;
+    padding:0px 0px 0px 15px;
+    color:white;
+    border-radius:0px 8px 8px 0px;
+    height:auto;
+    min-width: 30px;
+    max-width:30px;
+    text-align: center;
 }
 
-#sets{
-    position:absolute;
-    -webkit-transform: rotate(90deg);
-    top:170px;
-    left:10%;
-    margin:50px auto;
-    width:40%;
+#sets, #reps{
+    width:200px;
+    margin:15px auto;
 }
 
-#reps{
-    position:absolute;
-    -webkit-transform: rotate(90deg);
-    top:170px;
-    right:10%;
-    margin:50px auto;
-    width:40%;
-}
 
 .input-row{
     margin:10px auto;
@@ -323,11 +367,13 @@ input[type="range"]:focus {
 input[type="range"]::-webkit-slider-runnable-track {
     background:transparent;
     height: 10px;
+    
 }
    
 input[type="range"]::-moz-range-track {
     background-color :transparent ;
     height: 10px;
+    
 }
 
 input[type="range"]::-webkit-slider-thumb {
@@ -340,8 +386,7 @@ input[type="range"]::-webkit-slider-thumb {
     background-image:url('pushfit-icon.svg');
     background-size: fill;
     background-repeat: no-repeat;
-    transform: rotate(-90deg);
-    border:solid white 2px;
+    border:solid #FF686B 2px;
 }
    
 input[type="range"]::-moz-range-thumb {
@@ -354,8 +399,7 @@ input[type="range"]::-moz-range-thumb {
     background-image:url('pushfit-icon.svg');
     background-size: fill;
     background-repeat: no-repeat;
-    transform: rotate(-90deg);
-    border:solid white 2px;
+    border:solid #FF686B 2px;
 }
 
 //#84DCC6
