@@ -13,48 +13,55 @@
             <h3>YOUR GYM PARTNER</h3>
 
             <svg version="1.1" id="icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;" xml:space="preserve">
-            <style type="text/css">
-                .st0{fill:#FFFFFF;}
-                .st1{fill:#FFA69E;}
-            </style>
-            <g>
-                <g>
-                    <path class="st0" d="M468.39,0H91.61C41.22,0,0,41.22,0,91.61v376.78C0,518.78,41.22,560,91.61,560h376.78
-                        c50.39,0,91.61-41.22,91.61-91.61V91.61C560,41.22,518.78,0,468.39,0z"/>
-                </g>
+                        viewBox="0 0 560 560" style="enable-background:new 0 0 560 560;" xml:space="preserve">
+                <style type="text/css">
+                    .st0{fill:#FFFFFF;}
+                    .st1{fill:#FFA69E;}
+                </style>
                 <g>
                     <g>
-                        <path class="st1" d="M242.87,414.31L242.87,414.31c20.61,20.61,54.34,20.61,74.95,0L504.5,227.64
-                            c20.61-20.61,20.61-54.34,0-74.95l0,0c-20.61-20.61-54.34-20.61-74.95,0L242.87,339.36C222.26,359.97,222.26,393.7,242.87,414.31
-                            z"/>
-                        <path class="st1" d="M316.5,414.31L316.5,414.31c20.61-20.61,20.61-54.34,0-74.95l-73.86-73.86c-20.61-20.61-54.34-20.61-74.95,0
-                            l0,0c-20.61,20.61-20.61,54.34,0,74.95l73.86,73.86C262.16,434.93,295.89,434.93,316.5,414.31z"/>
+                        <path class="st0" d="M468.39,0H91.61C41.22,0,0,41.22,0,91.61v376.78C0,518.78,41.22,560,91.61,560h376.78
+                            c50.39,0,91.61-41.22,91.61-91.61V91.61C560,41.22,518.78,0,468.39,0z"/>
                     </g>
-                    <circle class="st1" cx="139.5" cy="228.5" r="98.5"/>
+                    <g>
+                        <g>
+                            <path class="st1" d="M242.87,414.31L242.87,414.31c20.61,20.61,54.34,20.61,74.95,0L504.5,227.64
+                                c20.61-20.61,20.61-54.34,0-74.95l0,0c-20.61-20.61-54.34-20.61-74.95,0L242.87,339.36C222.26,359.97,222.26,393.7,242.87,414.31
+                                z"/>
+                            <path class="st1" d="M316.5,414.31L316.5,414.31c20.61-20.61,20.61-54.34,0-74.95l-73.86-73.86c-20.61-20.61-54.34-20.61-74.95,0
+                                l0,0c-20.61,20.61-20.61,54.34,0,74.95l73.86,73.86C262.16,434.93,295.89,434.93,316.5,414.31z"/>
+                        </g>
+                        <circle class="st1" cx="139.5" cy="228.5" r="98.5"/>
+                    </g>
                 </g>
-            </g>
-       </svg>
-        <button id="go-train" type='button'>GO TRAIN</button>
+            </svg>
+
+            <div>
+                <div id="loader-container">
+                    <div id="loader"></div>
+                    <div id="loader-inner"></div>
+                    <h3 id="go-train">GO TRAIN</h3>
+                </div>
+            </div>
+
         </div>
 
 
+            <div id="app-container hide">
+                <div id="instructions" class="flex-page hide"> 
+                    <h2>how to use</h2>
+                    <div id="instruction-text">
+                        <p>This tool is designed to help you with your gym routine.
+                        Simply enter the exercise into the input field, then select the amount of reps
+                        and sets you want to complete for each exercise then add the exercise to your workout.
+                        </p>
+                        <p>
+                        if you have completed your exercise you can tap it to mark it as done, or you can remove it using the delete icon.
 
-        <div id="app-container hide">
-            <div id="instructions" class="flex-page hide"> 
-                <h2>how to use</h2>
-                <div id="instruction-text">
-                    <p>This tool is designed to help you with your gym routine.
-                    Simply enter the exercise into the input field, then select the amount of reps
-                    and sets you want to complete for each exercise then add the exercise to your workout.
-                    </p>
-                    <p>
-                    if you have completed your exercise you can tap it to mark it as done, or you can remove it using the delete icon.
+                        </p>
 
-                    </p>
-
-                </div>
-                <button id='start-now'>start now</button>
+                    </div>
+                    <button id='start-now'>start now</button>
             </div>
 
 
@@ -85,8 +92,8 @@
                 <button id='help' type="button">help</button>
             </div>
 
-        </div>
 
         <script src="app.js"></script>
+        <script src="timer.js"></script>
     </body>
 </html>

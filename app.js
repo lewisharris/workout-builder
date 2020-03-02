@@ -1,6 +1,21 @@
 //WGER API
 
 
+//introspin
+function loadSpin(element,newClass){
+  document.getElementById(element).classList.add(newClass)
+}
+
+document.getElementById('go-train').addEventListener('click',()=>{
+    document.getElementById('loader').classList.add('spin')
+    document.getElementById('loader-inner').classList.add('spin-inner')
+
+})
+
+
+
+
+
 //navigate through pages
 const instructions = document.getElementById('instructions')
 const newExerciseMenu = document.getElementById('new-exercise-menu')
@@ -20,7 +35,7 @@ function hideWelcome(){
 
 
 document.getElementById('go-train').addEventListener('click',() => {
-    setTimeout(hideWelcome,0)
+    setTimeout(hideWelcome,1500)
 })
 
 document.getElementById('start-now').addEventListener('click', () => {
@@ -108,6 +123,7 @@ function createNewExercise(exercise,sets,reps){
     removeExercise();
     completeExercise();
     addedToWorkout();
+    checkForEmptyList();
     setTimeout(returnButton,400)
     }
 };
@@ -126,7 +142,11 @@ function removeExercise(){
     deleteIcons = [...document.getElementsByClassName('delete-exercise')];
     deleteIcons.forEach(item => {
         item.addEventListener('click',() =>{
+            let itemText= item.parentNode.firstElementChild.innerHTML;
+            index = workout.findIndex(x => x.exercise === itemText);
+            workout.splice(index,1);
             item.parentNode.remove();
+
         })
     })
 };
@@ -161,7 +181,8 @@ document.getElementById('clear-workout').addEventListener('click', () => {clearW
 
 //message for when workout list is empty
 function checkForEmptyList(){
-    if(workoutList.value == undefined){
+    if(workoutList.length === 0){
+        console.log('empty')
         document.getElementById('workoutList').innerHTML = 'WORKOUT IS EMPTY'
     }
 }
